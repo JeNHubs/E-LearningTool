@@ -3,92 +3,100 @@ import { useNavigation } from '@react-navigation/native';
 import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Image, Platform, StatusBar } from 'react-native';
 import colors from '../Config/colors.js';
 
+
+
 function WatchScreen() {
     const navigation = useNavigation();
     const [sidebarVisible, setSidebarVisible] = useState(false);
+
+
+    const sideBarClose = () => {
+        setSidebarVisible(false);
+    }
+
 return (
     <View style={styles.container}>
-             <View style={styles.navbarContainer}>
-                <View style={styles.nav}>
-                    <TouchableOpacity style={styles.navbarIconContainer}
-                     onPress={() => setSidebarVisible(true)}
-                    >
-                        <Image style={styles.navbarIcon} source={require('../assets/menu-bar.png')}/>
+        <View style={styles.navbarContainer}>
+            <View style={styles.nav}>
+                <TouchableOpacity style={styles.navbarIconContainer}
+                    onPress={() => setSidebarVisible(true)}
+                >
+                    <Image style={styles.navbarIcon} source={require('../assets/menu-bar.png')}/>
+                </TouchableOpacity>
+                <Text style={styles.navbarTitle}>WATCH</Text>
+            </View>
+        </View>
+        {sidebarVisible && (
+            <View style={styles.sidebar}>
+                <View style={styles.sideBarProfileContainer}>
+                    <View style={styles.profileIcon}>
+                        <Text style={styles.profileIconText}>U</Text>
+                    </View>
+                    <View>
+                        <Text style={styles.profileInfoUser}>USER</Text>
+                        <Text style={styles.profileInfoEmail}>user@gmail.com</Text>
+                    </View>
+                    <View style={styles.sidebarArrowBackContainer}>
+                        <TouchableOpacity style={styles.sidebarArrowBack} onPress={() => setSidebarVisible(false)} >
+                            <Image style={styles.sidebarArrowBackIcon} source={require('../assets/arrow-left.png')}/>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <View style={styles.sidebarItemsContainer}>
+                    <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('Home')}}>
+                        <Image style={styles.sidebarItemIcon} source={require('../assets/home-navigation.png')} />
+                        <Text style={styles.sidebarItemText}>Home</Text>
                     </TouchableOpacity>
-                    <Text style={styles.navbarTitle}>WATCH</Text>
+                    <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('Progress')}}>
+                        <Image style={styles.sidebarItemIcon} source={require('../assets/progress-navigation.png')} />
+                        <Text style={styles.sidebarItemText}>Progress</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('Learn'); }}>
+                        <Image style={styles.sidebarItemIcon} source={require('../assets/learn-navigation.png')} />
+                        <View style={{flexDirection: 'column'}}>
+                            <Text style={styles.sidebarItemTextTitle}>Learn</Text>
+                            <Text style={styles.sidebarItemTextDescription}>words and phrases</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('About')}}>
+                        <Image style={styles.sidebarItemIcon} source={require('../assets/community-navigation.png')} />
+                        <View style={{flexDirection: 'column'}}>
+                            <Text style={styles.sidebarItemTextTitle}>About Us</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <View style={styles.sidebarItemLogout}>
+                        <TouchableOpacity style={styles.sidebarItemLogoutButton} onPress={() => {sideBarClose(); navigation.navigate('Login')}}>
+                            <Text style={styles.sidebarItemLogoutText}>Logout</Text>
+                        </TouchableOpacity>
+                    </View> 
                 </View>
             </View>
-            {sidebarVisible && (
-                <View style={styles.sidebar}>
-                    <View style={styles.sideBarProfileContainer}>
-                        <View style={styles.profileIcon}>
-                            <Text style={styles.profileIconText}>U</Text>
-                        </View>
-                        <View>
-                            <Text style={styles.profileInfoUser}>USER</Text>
-                            <Text style={styles.profileInfoEmail}>user@gmail.com</Text>
-                        </View>
-                        <View style={styles.sidebarArrowBackContainer}>
-                            <TouchableOpacity style={styles.sidebarArrowBack} onPress={() => setSidebarVisible(false)} >
-                                <Image style={styles.sidebarArrowBackIcon} source={require('../assets/arrow-left.png')}/>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                    <View style={styles.sidebarItemsContainer}>
-                        <TouchableOpacity style={styles.sidebarItem} onPress={() => navigation.navigate('Home')}>
-                            <Image style={styles.sidebarItemIcon} source={require('../assets/home-navigation.png')} />
-                            <Text style={styles.sidebarItemText}>Home</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.sidebarItem} onPress={() => navigation.navigate('Progress')}>
-                            <Image style={styles.sidebarItemIcon} source={require('../assets/progress-navigation.png')} />
-                            <Text style={styles.sidebarItemText}>Progress</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.sidebarItem} onPress={() => navigation.navigate('Learn')}>
-                            <Image style={styles.sidebarItemIcon} source={require('../assets/learn-navigation.png')} />
-                            <View style={{flexDirection: 'column'}}>
-                                <Text style={styles.sidebarItemTextTitle}>Learn</Text>
-                                <Text style={styles.sidebarItemTextDescription}>words and phrases</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.sidebarItem} onPress={() => navigation.navigate('About')}>
-                            <Image style={styles.sidebarItemIcon} source={require('../assets/community-navigation.png')} />
-                            <View style={{flexDirection: 'column'}}>
-                                <Text style={styles.sidebarItemTextTitle}>About Us</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <View style={styles.sidebarItemLogout}>
-                            <TouchableOpacity style={styles.sidebarItemLogoutButton} onPress={() => navigation.navigate('Login')}>
-                                <Text style={styles.sidebarItemLogoutText}>Logout</Text>
-                            </TouchableOpacity>
-                        </View> 
-                    </View>
-                </View>
-            )}
+        )}
 
-            <ScrollView style={[styles.scrollView, {marginBottom: 'auto'}]}>
-                <View style={styles.watch} />
-                <Text style={styles.heading}>Recommended videos</Text>
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
-                {[1, 2, 3, 4, 5, 6].map((index) => (
-                    <View key={index} style={{ backgroundColor: 'white', width: '38%', height: 75, borderRadius: 5, marginVertical: 5, marginHorizontal: 5 }} />
-                ))}
-                </View>
+        <ScrollView style={[styles.scrollView, {marginBottom: 'auto'}]}>
+            <View style={styles.watch} />
+            <Text style={styles.heading}>Recommended videos</Text>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {[1, 2, 3, 4, 5, 6].map((index) => (
+                <View key={index} style={{ backgroundColor: 'white', width: '38%', height: 75, borderRadius: 5, marginVertical: 5, marginHorizontal: 5 }} />
+            ))}
+            </View>
 
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
-                    {[1, 2, 3, 4].map((index) => (
-                    <View key={index} style={{ backgroundColor: 'white', width: '38%', height: 75, borderRadius: 5, marginVertical: 5, marginHorizontal: 5 }} />
-                    ))} 
-                </View>
-                <Text style={[styles.loadMore, { alignSelf: 'flex-end' }]}>
-                see more
-                </Text>
-                <Text style={styles.heading}>Most watched videos</Text>
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
-                    <View key={index} style={{ backgroundColor: 'white', width: '38%', height: 75, borderRadius: 5, marginVertical: 5, marginHorizontal: 5 }} />
-                ))}
-                </View>
-            </ScrollView>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
+                {[1, 2, 3, 4].map((index) => (
+                <View key={index} style={{ backgroundColor: 'white', width: '38%', height: 75, borderRadius: 5, marginVertical: 5, marginHorizontal: 5 }} />
+                ))} 
+            </View>
+            <Text style={[styles.loadMore, { alignSelf: 'flex-end' }]}>
+            see more
+            </Text>
+            <Text style={styles.heading}>Most watched videos</Text>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+                <View key={index} style={{ backgroundColor: 'white', width: '38%', height: 75, borderRadius: 5, marginVertical: 5, marginHorizontal: 5 }} />
+            ))}
+            </View>
+        </ScrollView>
         </View>
     );
 }

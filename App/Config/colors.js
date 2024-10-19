@@ -10,4 +10,5 @@ export default {
   LightPink: '#E571A9',
   LightGreen: '#0BCE83',
   orange: '#F55E55',
+  blue: '#0353A4'
 }

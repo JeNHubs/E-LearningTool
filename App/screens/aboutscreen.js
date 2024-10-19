@@ -9,6 +9,10 @@ function AboutScreen() {
     const [sidebarVisible, setSidebarVisible] = useState(false);
     const navigation = useNavigation();
 
+    const sideBarClose = () => {
+        setSidebarVisible(false);
+    }
+
     return (
         <View style={styles.container}>
              <View style={styles.navbarContainer}>
@@ -38,22 +42,22 @@ function AboutScreen() {
                         </View>
                     </View>
                     <View style={styles.sidebarItemsContainer}>
-                        <TouchableOpacity style={styles.sidebarItem} onPress={() => navigation.navigate('Home')}>
+                        <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('Home')}}>
                             <Image style={styles.sidebarItemIcon} source={require('../assets/home-navigation.png')} />
                             <Text style={styles.sidebarItemText}>Home</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.sidebarItem} onPress={() => navigation.navigate('About')}>
+                        <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('Progress')}}>
                             <Image style={styles.sidebarItemIcon} source={require('../assets/progress-navigation.png')} />
                             <Text style={styles.sidebarItemText}>Progress</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.sidebarItem} onPress={() => navigation.navigate('About')}>
+                        <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('Watch'); }}>
                             <Image style={styles.sidebarItemIcon} source={require('../assets/watch-navigation.png')} />
                             <View style={{flexDirection: 'column'}}>
                                 <Text style={styles.sidebarItemTextTitle}>Learn</Text>
-                                <Text style={styles.sidebarItemTextDescription}>words and phrases</Text>
+                                <Text style={styles.sidebarItemTextDescription}>native speaker video</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.sidebarItem} onPress={() => navigation.navigate('About')}>
+                        <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('Learn')}}>
                             <Image style={styles.sidebarItemIcon} source={require('../assets/learn-navigation.png')} />
                             <View style={{flexDirection: 'column'}}>
                                 <Text style={styles.sidebarItemTextTitle}>Learn</Text>
@@ -61,7 +65,7 @@ function AboutScreen() {
                             </View>
                         </TouchableOpacity>
                         <View style={styles.sidebarItemLogout}>
-                            <TouchableOpacity style={styles.sidebarItemLogoutButton} onPress={() => navigation.navigate('Login')}>
+                            <TouchableOpacity style={styles.sidebarItemLogoutButton} onPress={() => {sideBarClose(); navigation.navigate('Login')}}>
                                 <Text style={styles.sidebarItemLogoutText}>Logout</Text>
                             </TouchableOpacity>
                         </View> 

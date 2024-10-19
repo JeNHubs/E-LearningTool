@@ -2,9 +2,16 @@ import React from 'react';
 import {StyleSheet, Text, View, Image, StatusBar, Platform, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import colors from '../Config/colors.js';
-import * as Font from 'expo-font';
+import { useFonts } from 'expo-font';
+
 
 function LoginScreen() {
+
+  const [loaded] = useFonts({
+    'PaytoneOneRegular': require('../assets/fonts/PaytoneOne/PaytoneOne-Regular.ttf'),
+    'InriaSansRegular': require('../assets/fonts/Inria_Sans/InriaSans-Regular.ttf'),
+    'InterVariable': require('../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf'),
+  });
 
     const navigation = useNavigation();
 
@@ -72,6 +79,7 @@ const styles = StyleSheet.create({
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
       },
       header: {
+        height: 280,
         backgroundColor: colors.primary,
         alignItems: 'center',
         justifyContent: 'center',
@@ -80,9 +88,8 @@ const styles = StyleSheet.create({
         borderBottomStartRadius: 80
       },
       title: {
-        fontFamily: 'PaytoneOne-Regular',
-        fontSize: 36,
-        fontWeight: 'bold',
+        fontFamily: 'PaytoneOneRegular',
+        fontSize: 38,
         color: colors.white,
         top: 50,
       },
@@ -101,9 +108,10 @@ const styles = StyleSheet.create({
       },
       subtitle: {
         color: colors.primary,
-        width: '48%',
+        width: '50%',
         fontSize: 30,
         textAlign: 'center',
+        fontFamily: 'PaytoneOneRegular',
       },
       form: {
         top: 150,
@@ -113,12 +121,17 @@ const styles = StyleSheet.create({
       button: {
         backgroundColor: colors.primary,
         padding: 10,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
         borderRadius: 30,
       },
       buttonText: {
         color: colors.white,
         fontSize: 18,
         textAlign: 'center',
+        fontFamily: 'InterVariable',
+        fontWeight: 'bold',
       },
       inputContainer: {
         flexDirection: 'row',
@@ -138,8 +151,10 @@ const styles = StyleSheet.create({
       },
       input: {
         flex: 1,
-        height: 40,
+        height: 50,
         paddingHorizontal: 10,
+        fontFamily: 'InterVariable',
+        fontSize: 16,
       },
       signupContainer: {
         flexDirection: 'row',
@@ -149,12 +164,14 @@ const styles = StyleSheet.create({
       signupText: {
         fontSize: 16,
         color: colors.black,
+        fontFamily: 'InterVariable',
       },
       signupLink: {
         fontSize: 16,
         color: colors.black,
         fontWeight: 'bold',
         textDecorationLine: 'underline',
+        fontFamily: 'InterVariable',
       },
 });
 

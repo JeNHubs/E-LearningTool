@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
       },
       header: {
+        height: 280,
         backgroundColor: colors.primary,
         alignItems: 'center',
         justifyContent: 'center',
@@ -73,10 +74,10 @@ const styles = StyleSheet.create({
         borderBottomStartRadius: 80
       },
       title: {
-        fontSize: 36,
-        fontWeight: 'bold',
+        fontSize: 38,
         color: colors.white,
         top: 50,
+        fontFamily: 'PaytoneOneRegular',
       },
       logo: {
         width: 194,
@@ -92,8 +93,9 @@ const styles = StyleSheet.create({
         top: 100,
       },
       subtitle: {
+        fontFamily: 'PaytoneOneRegular',
         color: colors.primary,
-        width: '48%',
+        width: '50%',
         fontSize: 30,
         textAlign: 'center',
       },
@@ -111,6 +113,7 @@ const styles = StyleSheet.create({
         color: colors.white,
         fontSize: 18,
         textAlign: 'center',
+        fontFamily: 'InterVariable',
       },
       inputContainer: {
         flexDirection: 'row',
@@ -123,8 +126,9 @@ const styles = StyleSheet.create({
       },
       input: {
         flex: 1,
-        height: 40,
+        height: 45,
         paddingHorizontal: 5,
+        fontFamily: 'InterVariable',
       },
       signupContainer: {
         flexDirection: 'row',
@@ -134,12 +138,14 @@ const styles = StyleSheet.create({
       signupText: {
         fontSize: 16,
         color: colors.black,
+        fontFamily: 'InterVariable',
       },
       signupLink: {
         fontSize: 16,
         color: colors.black,
         fontWeight: 'bold',
         textDecorationLine: 'underline',
+        fontFamily: 'InterVariable',
       },
 });
 

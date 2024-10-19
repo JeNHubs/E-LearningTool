@@ -5,7 +5,7 @@ import colors from '../../Config/colors.js';
 
 
 
-function LearnGrammarScreen() {
+function LearnGrammarScreen1() {
     const navigation = useNavigation();
 
     return (
@@ -18,35 +18,50 @@ function LearnGrammarScreen() {
             </View>
             <View style={styles.LessonContainer}>
                 <View style={styles.BoxContainer}>
-                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('Vocabulary')}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('GrammarLesson1')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>1</Text>
                         </View>
-                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
+                        <View>
+                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
+                            <Text style={styles.LessonBoxDescription}>Parts  of Speech</Text>
+                        </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('GrammarLesson2')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>2</Text>
                         </View>
-                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
+                        <View>
+                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
+                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
+                        </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.LessonBox}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>3</Text>
                         </View>
-                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
+                        <View>
+                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
+                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
+                        </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.LessonBox}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>4</Text>
                         </View>
-                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
+                        <View>
+                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
+                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
+                        </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.LessonBox}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>5</Text>
                         </View>
-                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
+                        <View>
+                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
+                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
+                        </View>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -126,10 +141,18 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: colors.watchbackground,
     },
+    LessonBoxDescription: {
+        marginLeft: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: colors.watchbackground,
+    },
 
 
 });
 
 
 
-export default LearnGrammarScreen;
+export default LearnGrammarScreen1;

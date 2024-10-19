@@ -2,9 +2,16 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, StatusBar, Platform, TouchableOpacity} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import colors from '../Config/colors.js';
+import { useFonts } from 'expo-font';
   
 function HomeScreen() {
     const navigation = useNavigation();
+    const [loaded] = useFonts({
+        'PaytoneOneRegular': require('../assets/fonts/PaytoneOne/PaytoneOne-Regular.ttf'),
+        'InriaSansRegular': require('../assets/fonts/Inria_Sans/InriaSans-Regular.ttf'),
+        'InriaSansBold': require('../assets/fonts/Inria_Sans/InriaSans-Bold.ttf'),
+        'InterVariable': require('../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf'),
+      });
     
     return (
         <View style={styles.container}>
@@ -125,9 +132,9 @@ const styles = StyleSheet.create({
     },
     navbarTitle: {
         fontSize: 30,
-        fontWeight: 'bold',
         color: colors.black,
         paddingLeft: 20,
+        fontFamily: 'InriaSansBold',
     },
     profileIcon: {
         width: '12%',
@@ -156,8 +163,8 @@ const styles = StyleSheet.create({
     },
     textHeader: {
         fontSize: 30,
-        fontWeight: 'bold',
         color: colors.white,
+        fontFamily: 'PaytoneOneRegular',
     },
     textSmall: {
         fontSize: 20,
