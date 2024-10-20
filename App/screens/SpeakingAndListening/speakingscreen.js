@@ -3,8 +3,6 @@ import { StyleSheet, View, Text, Image, TouchableOpacity, Platform, StatusBar} f
 import { useNavigation } from '@react-navigation/native';
 import colors from '../../Config/colors.js';
 
-
-
 function SpeakingScreen() {
     const navigation = useNavigation();
 
@@ -18,50 +16,35 @@ function SpeakingScreen() {
             </View>
             <View style={styles.LessonContainer}>
                 <View style={styles.BoxContainer}>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('Lesson1Speaking')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>1</Text>
                         </View>
-                        <View>
-                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
-                        </View>
+                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('Lesson2Speaking')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>2</Text>
                         </View>
-                        <View>
-                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
-                        </View>
+                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('Lesson3Speaking')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>3</Text>
                         </View>
-                        <View>
-                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
-                        </View>
+                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('Lesson4Speaking')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>4</Text>
                         </View>
-                        <View>
-                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
-                        </View>
+                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('Lesson5Speaking')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>5</Text>
                         </View>
-                        <View>
-                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
-                        </View>
+                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -138,14 +121,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: 30,
-        fontWeight: 'bold',
-        color: colors.watchbackground,
-    },
-    LessonBoxDescription: {
-        marginLeft: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 15,
         fontWeight: 'bold',
         color: colors.watchbackground,
     },

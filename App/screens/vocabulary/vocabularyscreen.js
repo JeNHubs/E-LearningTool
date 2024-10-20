@@ -18,7 +18,7 @@ function VocabularyScreen() {
             </View>
             <View style={styles.LessonContainer}>
                 <View style={styles.BoxContainer}>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('VocabularyLesson1')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>1</Text>
                         </View>
@@ -27,7 +27,7 @@ function VocabularyScreen() {
                             <Text style={styles.LessonBoxDescription}>Common Noun</Text>
                         </View>  
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('VocabularyLesson2')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>2</Text>
                         </View>
@@ -36,7 +36,7 @@ function VocabularyScreen() {
                             <Text style={styles.LessonBoxDescription}>Verbs (Actions)</Text>
                         </View>  
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('VocabularyLesson3')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>3</Text>
                         </View>
@@ -45,7 +45,7 @@ function VocabularyScreen() {
                             <Text style={styles.LessonBoxDescription}>Adjectives (Describing Words)</Text>
                         </View>  
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('VocabularyLesson4')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>4</Text>
                         </View>
@@ -54,7 +54,7 @@ function VocabularyScreen() {
                             <Text style={styles.LessonBoxDescription}>Number</Text>
                         </View>  
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('VocabularyLesson5')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>5</Text>
                         </View>

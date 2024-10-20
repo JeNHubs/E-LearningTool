@@ -33,34 +33,34 @@ function LearnGrammarScreen1() {
                         </View>
                         <View>
                             <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
+                            <Text style={styles.LessonBoxDescription}>Subject Verb Agreement</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('GrammarLesson3')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>3</Text>
                         </View>
                         <View>
                             <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
+                            <Text style={styles.LessonBoxDescription}>Pronouns and Antecedents</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('GrammarLesson4')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>4</Text>
                         </View>
                         <View>
                             <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
+                            <Text style={styles.LessonBoxDescription}>Modifiers</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('GrammarLesson5')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>5</Text>
                         </View>
                         <View>
                             <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
+                            <Text style={styles.LessonBoxDescription}>Verb Tenses</Text>
                         </View>
                     </TouchableOpacity>
                 </View>

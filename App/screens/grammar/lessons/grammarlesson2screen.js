@@ -176,6 +176,37 @@ function LearnGrammarScreen2() {
                             </View>
                         </View>
                     </View>
+                    
+                </View>
+                <View style={styles.QuizContainer}>
+                    <View style={styles.QuizBox}>
+                    <Text style={styles.textHeader}>Short Quiz: MULTIPLE CHOICE</Text>
+                        <Text style={styles.textNumbered}>1. The cat or the dogs ___ around the yard every day.</Text>
+                        <View style={styles.quizOptions}>
+                            <Text style={styles.quizOptionText}>A) runs</Text>
+                            <Text style={styles.quizOptionText}>B) run</Text>
+                        </View>
+                        <Text style={styles.textNumbered}>2. Every student ___ submitted their assignment on time. </Text>
+                        <View style={styles.quizOptions}>
+                            <Text style={styles.quizOptionText}>A) has </Text>
+                            <Text style={styles.quizOptionText}>B) have</Text>
+                        </View>
+                        <Text style={styles.textNumbered}>3. Physics ___ one of my favorite subjects. </Text>
+                        <View style={styles.quizOptions}>
+                            <Text style={styles.quizOptionText}>A) is </Text>
+                            <Text style={styles.quizOptionText}>B) are</Text>
+                        </View>
+                        <Text style={styles.textNumbered}>4. The team ___planning their next strategy for the match. </Text>
+                        <View style={styles.quizOptions}>
+                            <Text style={styles.quizOptionText}>A) is </Text>
+                            <Text style={styles.quizOptionText}>B) are</Text>
+                        </View>
+                        <Text style={styles.textNumbered}>5. There ___ many reasons for his decision.  </Text>
+                        <View style={styles.quizOptions}>
+                            <Text style={styles.quizOptionText}>A) is </Text>
+                            <Text style={styles.quizOptionText}>B) are</Text>
+                        </View>
+                    </View>
                 </View>
             </ScrollView>
             
@@ -243,6 +274,42 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
         textDecorationLine: 'underline',
+    },
+    QuizContainer: {
+        marginTop: 40,
+        width: '100%',
+        height: 'auto',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    QuizBox: {
+        padding: 20,
+        marginTop: 20,
+        width: '90%',
+        height: 'auto',
+        marginBottom: 20,
+        backgroundColor: colors.white,
+        borderRadius: 5,
+    },
+    textHeader: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 15,
+    },
+    textNumbered: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: colors.watchbackground,
+    },
+    quizOptions: {
+        width: '100%',
+        height: 'auto',
+        marginBottom: 15,   
+    },
+    quizOptionText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: colors.black,
     },
 
 });

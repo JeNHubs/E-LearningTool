@@ -8,6 +8,43 @@ import colors from '../../../Config/colors.js';
 function LearnGrammarScreen() {
     const navigation = useNavigation();
 
+    const [answers, setAnswers] = useState([]);
+
+
+
+    const handleSubmit = () => {
+        
+        // Check if all questions have been answered
+        if (answers.length !== 5 || answers.includes(undefined)) {
+            alert('Please answer all questions.');
+            return;
+        }
+
+        // Check if all answers are correct
+        const correctAnswers = [
+            'C', // correct answer for question 1
+            'C', // correct answer for question 2
+            'D', // correct answer for question 3
+            'A', // correct answer for question 4
+            'A', // correct answer for question 5
+        ];
+
+        let score = 0;
+        for (let i = 0; i < answers.length; i++) {
+            if (answers[i] === correctAnswers[i]) {
+                score++;
+            }
+        }
+
+        console.log(`You scored ${score} out of ${answers.length}!`);
+        alert(`You scored ${score} out of ${answers.length}!`);
+
+    };
+       
+        
+    
+
+
     return (
         <View style={styles.container}>
             <View style={styles.nav}>
@@ -75,9 +112,58 @@ function LearnGrammarScreen() {
                         </Text>
                     </View>
                 </View>
+                
+                <View style={styles.QuizContainer}>
+                    <View style={styles.QuizBox}>
+                        <Text style={styles.textHeader}>Short Quiz: MULTIPLE CHOICE </Text>
+                        <Text style={styles.textNumbered}>1. Which of the following is NOT one of the eighth parts of speech? </Text>
+                        <View style={styles.quizOptions}>
+                                <Text style={styles.quizOptionText}>A) Noun</Text>
+                                <Text style={styles.quizOptionText}>B) Adjective</Text>
+                                <Text style={styles.quizOptionText}>C) Phrase</Text>
+                                <Text style={styles.quizOptionText}>D) Verb</Text>
+                        </View>
+                    </View>
+                    <View style={styles.QuizBox}>
+                        <Text style={styles.textNumbered}>2. What part of speech describes a noun? </Text>
+                        <View style={styles.quizOptions}>
+                            <Text style={styles.quizOptionText}>A) Verb</Text>
+                            <Text style={styles.quizOptionText}>B) Adverb</Text>
+                            <Text style={styles.quizOptionText}>C) Adjective</Text>
+                            <Text style={styles.quizOptionText}>D) Conjunction</Text>
+                        </View>
+                    </View>
+                    <View style={styles.QuizBox}>
+                        <Text style={styles.textNumbered}>3. Which of the following contains a pronoun? </Text>
+                        <View style={styles.quizOptions}>
+                            <Text style={styles.quizOptionText}>A) Chin runs fast </Text>
+                            <Text style={styles.quizOptionText}>B) The dog is barking loudly</Text>
+                            <Text style={styles.quizOptionText}>C) The book is on the table</Text>
+                            <Text style={styles.quizOptionText}>D) He loves to play basketball</Text>
+                        </View>
+                    </View>
+                    <View style={styles.QuizBox}>
+                        <Text style={styles.textNumbered}>4. Which of the following is a conjunction?  </Text>
+                        <View style={styles.quizOptions}>
+                            <Text style={styles.quizOptionText}>A) And </Text>
+                            <Text style={styles.quizOptionText}>B) However</Text>
+                            <Text style={styles.quizOptionText}>C) Quickly</Text>
+                            <Text style={styles.quizOptionText}>D) Cat</Text>
+                        </View>
+                    </View>
+                    <View style={styles.QuizBox}>
+                        <Text style={styles.textNumbered}>5. “She run quickly to the store” In this sentence what part of speech is “quickly” ?  </Text>
+                        <View style={styles.quizOptions}>
+                            <Text style={styles.quizOptionText}>A) Adverb </Text>
+                            <Text style={styles.quizOptionText}>B) Noun</Text>
+                            <Text style={styles.quizOptionText}>C) Adjective</Text>
+                            <Text style={styles.quizOptionText}>D) Conjunction</Text>
+                        </View>
+                    </View>
+                </View>
             </ScrollView>
-            
         </View>
+      
     );
 }
 
@@ -136,6 +222,40 @@ const styles = StyleSheet.create({
         padding: 15,
         width: '90%',
         height: 'auto',
+    },
+
+    QuizContainer: {
+        marginTop: 40,
+        width: '100%',
+        height: 'auto',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: colors.white,
+    },
+    QuizBox: {
+        marginTop: 20,
+        width: '90%',
+        height: 'auto',
+        marginBottom: 20,
+    },
+    textHeader: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 15,
+    },
+    textNumbered: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: colors.watchbackground,
+    },
+    quizOptions: {
+        width: '100%',
+        height: 'auto',
+    },
+    quizOptionText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: colors.black,
     },
 
 });

@@ -18,57 +18,41 @@ function WritingScreen() {
             </View>
             <View style={styles.LessonContainer}>
                 <View style={styles.BoxContainer}>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('WritingLesson1')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>1</Text>
                         </View>
-                        <View>
-                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Letters in a Word</Text>
-                        </View>         
+                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('WritingLesson2')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>2</Text>
                         </View>
-                        <View>
-                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Words in Sentences</Text>
-                        </View>  
+                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('WritingLesson3')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>3</Text>
                         </View>
-                        <View>
-                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Sentences in a Paragraph</Text>
-                        </View>  
+                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('WritingLesson4')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>4</Text>
                         </View>
-                        <View>
-                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Word Categories</Text>
-                        </View>  
+                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.LessonBox}>
+                    <TouchableOpacity style={styles.LessonBox} onPress={() => navigation.navigate('WritingLesson5')}>
                         <View style={styles.LessonBoxNum}>
                             <Text style={styles.Number}>5</Text>
                         </View>
-                        <View>
-                            <Text style={styles.LessonBoxTitle}>LESSON</Text>
-                            <Text style={styles.LessonBoxDescription}>Jumbled Word Definitions</Text>
-                        </View>  
+                        <Text style={styles.LessonBoxTitle}>LESSON</Text>
                     </TouchableOpacity>
                 </View>
             </View>
         </View>
     );
 }
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -138,14 +122,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: 30,
-        fontWeight: 'bold',
-        color: colors.watchbackground,
-    },
-    LessonBoxDescription: {
-        marginLeft: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 15,
         fontWeight: 'bold',
         color: colors.watchbackground,
     },
