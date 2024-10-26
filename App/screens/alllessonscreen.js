@@ -3,11 +3,23 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Image, Platform, StatusBar } from 'react-native';
 import colors from '../Config/colors.js';
-
+import { useFonts } from 'expo-font';
 
 function AllLearnScreen() {
     const navigation = useNavigation();
     const [sidebarVisible, setSidebarVisible] = useState(false);
+
+    const [loaded] = useFonts({
+        'InriaSansRegular': require('../assets/fonts/InriaSans-Regular.ttf'),
+        'InriaSansBold': require('../assets/fonts/InriaSans-Bold.ttf'),
+        'InterRegular': require('../assets/fonts/Inter_18pt-Regular.ttf'),
+        'InterBold': require('../assets/fonts/Inter_18pt-Bold.ttf'),
+        'PaytoneRegular': require('../assets/fonts/PaytoneOne-Regular.ttf'),
+      });
+
+      if (!loaded) {
+        return null;
+      }
 
     return (
         <View style={styles.container}>

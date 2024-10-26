@@ -7,11 +7,16 @@ import { useFonts } from 'expo-font';
 function HomeScreen() {
     const navigation = useNavigation();
     const [loaded] = useFonts({
-        'PaytoneOneRegular': require('../assets/fonts/PaytoneOne/PaytoneOne-Regular.ttf'),
-        'InriaSansRegular': require('../assets/fonts/Inria_Sans/InriaSans-Regular.ttf'),
-        'InriaSansBold': require('../assets/fonts/Inria_Sans/InriaSans-Bold.ttf'),
-        'InterVariable': require('../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf'),
+        'InriaSansRegular': require('../assets/fonts/InriaSans-Regular.ttf'),
+        'InriaSansBold': require('../assets/fonts/InriaSans-Bold.ttf'),
+        'InterRegular': require('../assets/fonts/Inter_18pt-Regular.ttf'),
+        'InterBold': require('../assets/fonts/Inter_18pt-Bold.ttf'),
+        'PaytoneRegular': require('../assets/fonts/PaytoneOne-Regular.ttf'),
       });
+
+      if (!loaded) {
+        return null;
+      }
     
     return (
         <View style={styles.container}>
@@ -162,13 +167,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     textHeader: {
-        fontSize: 30,
+        fontSize: 35,
         color: colors.white,
-        fontFamily: 'PaytoneOneRegular',
+        fontFamily: 'PaytoneRegular',
     },
     textSmall: {
         fontSize: 20,
         color: colors.white,
+        fontFamily: 'InriaSansRegular',
     },
     buttonContainer: {
         width: '100%',
@@ -217,10 +223,12 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         color: colors.white,
+        fontFamily: 'InriaSansBold',
     },
     buttonTextDescription: {        
         fontSize: 20,        
         color: colors.white,
+        fontFamily: 'InriaSansBold',
     },
     navigationBarBottom: {    
         width: '100%',
@@ -247,7 +255,7 @@ const styles = StyleSheet.create({
     navigationText: {
         color: colors.black,
         fontSize: 15,
-        fontWeight: 'bold',
+        fontFamily: 'InterBold',
     },
 
 });

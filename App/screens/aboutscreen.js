@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, ScrollView, TouchableOpacity, Platform, StatusBar} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import colors from '../Config/colors.js';
-
+import { useFonts } from 'expo-font';
 
 
 function AboutScreen() {
@@ -12,6 +12,18 @@ function AboutScreen() {
     const sideBarClose = () => {
         setSidebarVisible(false);
     }
+
+    const [loaded] = useFonts({
+        'InriaSansRegular': require('../assets/fonts/InriaSans-Regular.ttf'),
+        'InriaSansBold': require('../assets/fonts/InriaSans-Bold.ttf'),
+        'InterRegular': require('../assets/fonts/Inter_18pt-Regular.ttf'),
+        'InterBold': require('../assets/fonts/Inter_18pt-Bold.ttf'),
+        'PaytoneRegular': require('../assets/fonts/PaytoneOne-Regular.ttf'),
+      });
+
+      if (!loaded) {
+        return null;
+      }
 
     return (
         <View style={styles.container}>
@@ -53,14 +65,14 @@ function AboutScreen() {
                         <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('Watch'); }}>
                             <Image style={styles.sidebarItemIcon} source={require('../assets/watch-navigation.png')} />
                             <View style={{flexDirection: 'column'}}>
-                                <Text style={styles.sidebarItemTextTitle}>Learn</Text>
+                                <Text style={styles.sidebarItemText}>Watch</Text>
                                 <Text style={styles.sidebarItemTextDescription}>native speaker video</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('Learn')}}>
                             <Image style={styles.sidebarItemIcon} source={require('../assets/learn-navigation.png')} />
                             <View style={{flexDirection: 'column'}}>
-                                <Text style={styles.sidebarItemTextTitle}>Learn</Text>
+                                <Text style={styles.sidebarItemText}>Learn</Text>
                                 <Text style={styles.sidebarItemTextDescription}>words and phrases</Text>
                             </View>
                         </TouchableOpacity>
@@ -76,28 +88,37 @@ function AboutScreen() {
            
 
             <ScrollView style={[styles.scrollView, {marginBottom: 'auto'}]}>
+                <View style={styles.themeContainer}>
+                    <Text style={styles.themeTitle}>OUR THEME</Text>
+                    <Text style={styles.themeDescription}>Our English E-learning Application is designed solely to teach basic lessons and to empower the users knowledge and learning about the English language. Our app offers guided lessons that are essential language skills such as grammar basics, vocabulary and expression, listening, and writing skills. Each section is crafted to help and support users toward fluency. Additionally, our app includes a dedicated “Watch” page, where users can easily access English lessons and tutorials specialized to enhance understanding through guided, visual learning. To reinforce learning, each lesson concludes with a quiz, turning each review into a fun activity and promoting active recall. This approach not only builds essential language skills but also makes learning enjoyable and interactive. </Text>
+                </View>
                 <View style={styles.personContainer}>
                     <View style={styles.box}>
                         <View style={styles.personProfileContainer}>
-                            <Image style={styles.personProfile} source={require('../assets/user-pfp.png')} />
+                            <Image style={styles.personProfile} source={require('../assets/nuarin-PFP.jpg')} />
                         </View>
                         <View style={styles.personNameContainer}>
                             <Text style={styles.personName}>Nuarin Jerry</Text>
                             <Text style={styles.personPosition}>Leader</Text>
                         </View>
                         <View style={styles.personDescriptionContainer}>
-                            <Text style={styles.personDescription}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</Text>
+                            <ScrollView nestedScrollEnabled={true}>
+                                <Text style={styles.personDescription}>My specialty is UX principles and theory, which involves ensuring our application is visually appealing, user-friendly, clean, and well-organized. I accomplish this by applying various UX principles and laws, including a method known as C.R.A.P. This acronym stands for Contrast, Repetition, Alignment, and Proximity. Contrast highlights the main content through differences in color, size, and shape. Repetition maintains consistency to reduce confusion, while Alignment ensures that shapes, fonts, and elements are organized for clarity. Lastly, Proximity emphasizes the relationships between different components, making the application more user-friendly. By implementing these principles, I strive to enhance the overall user experience.</Text>
+                            </ScrollView>
                         </View>
                     </View>
                     <View style={styles.box}>
                         <View style={styles.personProfileContainer}>
-                            <Image style={styles.personProfile} source={require('../assets/user-pfp.png')} />
+                            <Image style={styles.personProfile} source={require('../assets/chavez-PFP.jpg')} />
                         </View>
                         <View style={styles.personNameContainer}>
                             <Text style={styles.personName}>Chavez Leo</Text>
+                            <Text style={styles.personPosition}>Member</Text>
                         </View>
                         <View style={styles.personDescriptionContainer}>
-                            <Text style={styles.personDescription}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</Text>
+                            <ScrollView nestedScrollEnabled={true}>
+                                <Text style={styles.personDescription}>By applying the 60 30 10 rule, I selected color schemes that balance the design and corporate theme of our application by blending the dominant, secondary, and least colors in a way that isn’t overwhelming for the users.</Text>
+                            </ScrollView>
                         </View>
                     </View>
                 </View>
@@ -105,24 +126,31 @@ function AboutScreen() {
                 <View style={styles.personContainer}>
                     <View style={styles.box}>
                         <View style={styles.personProfileContainer}>
-                            <Image style={styles.personProfile} source={require('../assets/user-pfp.png')} />
+                            <Image style={styles.personProfile} source={require('../assets/nepomuceno-PFP.jpg')} />
                         </View>
                         <View style={styles.personNameContainer}>
                             <Text style={styles.personName}>Nepomuceno Wencer</Text>
+                            <Text style={styles.personPosition}>Member</Text>
                         </View>
                         <View style={styles.personDescriptionContainer}>
-                            <Text style={styles.personDescription}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</Text>
+                            <ScrollView nestedScrollEnabled={true}>
+                                <Text style={styles.personDescription}>As part of the development process for our Android application, I assisted the team with improving the User Interface (UI) spacing. This task was important to ensure that the app had a clean, organized, and user-friendly layout. By helping our group to focus on UI spacing, I contributed to enhancing the overall usability and aesthetics of our app, making it more intuitive for users.</Text>
+                            </ScrollView>
                         </View>
                     </View>
                     <View style={styles.box}>
                         <View style={styles.personProfileContainer}>
-                            <Image style={styles.personProfile} source={require('../assets/user-pfp.png')} />
+                            <Image style={styles.personProfile} source={require('../assets/penoliar-PFP.jpg')} />
                         </View>
                         <View style={styles.personNameContainer}>
                             <Text style={styles.personName}>Penoliar, Roi Gabriel</Text>
+                            <Text style={styles.personPosition}>Member</Text>
                         </View>
+                        
                         <View style={styles.personDescriptionContainer}>
-                            <Text style={styles.personDescription}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</Text>
+                            <ScrollView nestedScrollEnabled={true}>
+                                <Text style={styles.personDescription}>In our project, I focused on Typography, using the fonts Paytone, Inter, and Inria Sans to align with our "English" theme. Paytone is used for headers due to its bold, casual feel, which makes it perfect for drawing attention to key sections. For body text, Inter and Inria Sans are chosen for their clean and readable design, making it easy for users to engage with lessons and instructions. I specifically worked on the writing part of the lessons, ensuring that the combination of these fonts provides a balanced and effective learning experience.</Text>
+                            </ScrollView>
                         </View>
                     </View>
                 </View>
@@ -130,24 +158,30 @@ function AboutScreen() {
                 <View style={styles.personContainer}>
                     <View style={styles.box}>
                         <View style={styles.personProfileContainer}>
-                            <Image style={styles.personProfile} source={require('../assets/user-pfp.png')} />
+                            <Image style={styles.personProfile} source={require('../assets/acosta-PFP.jpg')} />
                         </View>
                         <View style={styles.personNameContainer}>
                             <Text style={styles.personName}>Acosta, Karl Dave</Text>
+                            <Text style={styles.personPosition}>Member</Text>
                         </View>
                         <View style={styles.personDescriptionContainer}>
-                            <Text style={styles.personDescription}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</Text>
+                            <ScrollView nestedScrollEnabled={true}>
+                                <Text style={styles.personDescription}>In our project, I did research about the users that will use our app and study how we’d make it, and I gathered some data that it reflects the motivations, goals, needs, frustrations, and behaviors of users on our app, user needs, and the user’s expectations from the service or recomendation to improve their experience on our app.</Text>
+                            </ScrollView>
                         </View>
                     </View>
                     <View style={styles.box}>
                         <View style={styles.personProfileContainer}>
-                            <Image style={styles.personProfile} source={require('../assets/user-pfp.png')} />
+                            <Image style={styles.personProfile} source={require('../assets/arenas-PFP.jpg')} />
                         </View>
                         <View style={styles.personNameContainer}>
                             <Text style={styles.personName}>Arenas, Eron</Text>
+                            <Text style={styles.personPosition}>Member</Text>
                         </View>
                         <View style={styles.personDescriptionContainer}>
-                            <Text style={styles.personDescription}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Ut enim ad minim veniam Ut enim ad minim veniam Ut enim ad.</Text>
+                            <ScrollView nestedScrollEnabled={true}>
+                                <Text style={styles.personDescription}>For my part, I'm using the theme color of our app. It uses hue, saturation, lightness of the color, and also the color groups. By recommending or applying color theory to our application it helped us because it is one of the things that gives life or meaning to the color of our theme in our application. Also choosing the right colors can make designs more accessible, especially for people with visual impairments. High contrast, for example, can make content easier to read for those with low vision.</Text>
+                            </ScrollView>
                         </View>
                     </View>
                 </View>
@@ -221,18 +255,20 @@ const styles = StyleSheet.create({
     },
     profileIconText: {
         fontSize: 50,
-        fontWeight: 'bold',
+        fontFamily: 'PaytoneRegular',
         color: colors.primary,
     },
     profileInfoUser: {
         color: colors.white,
         fontSize: 18,
         marginBottom: -6,
+        fontFamily: 'PaytoneRegular',
     },
     profileInfoEmail: {
         color: colors.gray,
         fontSize: 15,
         textDecorationLine: 'underline',
+        fontFamily: 'PaytoneRegular',
     },
     sidebarArrowBackContainer: {
         width:'42%',
@@ -278,17 +314,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: colors.primary,
         marginLeft: 10,
-    },
-    sidebarItemTextTitle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: colors.primary,
-        marginLeft: 10,
+        fontFamily: 'PaytoneRegular',
     },
     sidebarItemTextDescription: {
         fontSize: 15,
         color: colors.primary,
         marginLeft: 10,
+        fontFamily: 'InriaSansBold',
     },
     sidebarItemLogout: {    
         width: '100%',
@@ -309,6 +341,28 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         color: colors.white,
+    },
+
+    themeContainer: {
+        width: '92%',
+        alignSelf: 'center',
+        justifyContent: 'center',
+        backgroundColor: colors.white,
+        borderRadius: 20,
+        marginBottom: 40,
+        padding: 20,
+    },
+    themeTitle: {
+        textAlign: 'center',
+        fontSize: 20,
+        color: colors.primary,
+        marginBottom: 10,
+        fontFamily: 'PaytoneRegular',
+    },
+    themeDescription: {
+        fontSize: 15,
+        color: colors.primary,
+        fontFamily: 'InriaSansRegular',
     },
 
     personContainer: {
@@ -346,24 +400,27 @@ const styles = StyleSheet.create({
         top: -30,
     },
     personName: {
-        fontSize: 18,
-        fontWeight: 'bold',
+        fontSize: 17,
         color: colors.primary,
+        fontFamily: 'InterBold',
     },
     personPosition: {
         fontSize: 12,
         color: colors.watchbackground,
+        fontFamily: 'InterRegular',
     },
 
     personDescriptionContainer: {
         width: '80%',
         height: 100,
         top: -25,
+        
     },
     
     personDescription: { 
         fontSize: 12,
         color: colors.primary, 
+        fontFamily: 'InriaSansRegular',
     },
    
 });

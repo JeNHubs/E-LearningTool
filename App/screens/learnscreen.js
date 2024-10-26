@@ -3,6 +3,7 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Image, Platform, StatusBar } from 'react-native';
 import colors from '../Config/colors.js';
+import { useFonts } from 'expo-font';
 
 
 function LearnScreen() {
@@ -12,6 +13,18 @@ function LearnScreen() {
     const sideBarClose = () => {
         setSidebarVisible(false);
     }
+
+    const [loaded] = useFonts({
+        'InriaSansRegular': require('../assets/fonts/InriaSans-Regular.ttf'),
+        'InriaSansBold': require('../assets/fonts/InriaSans-Bold.ttf'),
+        'InterRegular': require('../assets/fonts/Inter_18pt-Regular.ttf'),
+        'InterBold': require('../assets/fonts/Inter_18pt-Bold.ttf'),
+        'PaytoneRegular': require('../assets/fonts/PaytoneOne-Regular.ttf'),
+      });
+
+      if (!loaded) {
+        return null;
+      }
     return (
         <View style={styles.container}>
             <View style={styles.navbarContainer}>
@@ -49,22 +62,22 @@ function LearnScreen() {
                             <Image style={styles.sidebarItemIcon} source={require('../assets/progress-navigation.png')} />
                             <Text style={styles.sidebarItemText}>Progress</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('Learn'); }}>
-                            <Image style={styles.sidebarItemIcon} source={require('../assets/learn-navigation.png')} />
+                        <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('Watch'); }}>
+                            <Image style={styles.sidebarItemIcon} source={require('../assets/watch-navigation.png')} />
                             <View style={{flexDirection: 'column'}}>
-                                <Text style={styles.sidebarItemTextTitle}>Learn</Text>
-                                <Text style={styles.sidebarItemTextDescription}>words and phrases</Text>
+                                <Text style={styles.sidebarItemText}>Watch</Text>
+                                <Text style={styles.sidebarItemTextDescription}>native speaker video</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('About')}}>
                             <Image style={styles.sidebarItemIcon} source={require('../assets/community-navigation.png')} />
                             <View style={{flexDirection: 'column'}}>
-                                <Text style={styles.sidebarItemTextTitle}>About Us</Text>
+                                <Text style={styles.sidebarItemText}>About Us</Text>
                             </View>
                         </TouchableOpacity>
                         <View style={styles.sidebarItemLogout}>
                             <TouchableOpacity style={styles.sidebarItemLogoutButton} onPress={() => {sideBarClose(); navigation.navigate('Login')}}>
-                                <Text style={styles.sidebarItemLogoutText}>Logout</Text>
+                                <Text style={styles.sidebarItemLogoutText}>LOGOUT</Text>
                             </TouchableOpacity>
                         </View> 
                     </View>
@@ -186,18 +199,20 @@ const styles = StyleSheet.create({
     },
     profileIconText: {
         fontSize: 50,
-        fontWeight: 'bold',
         color: colors.primary,
+        fontFamily: 'PaytoneRegular',
     },
     profileInfoUser: {
         color: colors.white,
         fontSize: 18,
         marginBottom: -6,
+        fontFamily: 'PaytoneRegular',
     },
     profileInfoEmail: {
         color: colors.gray,
         fontSize: 15,
         textDecorationLine: 'underline',
+        fontFamily: 'PaytoneRegular',
     },
     sidebarArrowBackContainer: {
         width:'42%',
@@ -240,20 +255,15 @@ const styles = StyleSheet.create({
     },
     sidebarItemText: {
         fontSize: 20,
-        fontWeight: 'bold',
         color: colors.primary,
         marginLeft: 10,
-    },
-    sidebarItemTextTitle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: colors.primary,
-        marginLeft: 10,
+        fontFamily: 'PaytoneRegular',
     },
     sidebarItemTextDescription: {
         fontSize: 15,
         color: colors.primary,
         marginLeft: 10,
+        fontFamily: 'InriaSansBold',
     },
     sidebarItemLogout: {    
         width: '100%',
@@ -265,15 +275,15 @@ const styles = StyleSheet.create({
     sidebarItemLogoutButton: {
         borderRadius: 20,
         width: '80%',
-        height: 40,
+        height: 50,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: colors.navBarProfile,
     },
     sidebarItemLogoutText: {
-        fontSize: 20,
-        fontWeight: 'bold',
+        fontSize: 25,
         color: colors.white,
+        fontFamily: 'PaytoneRegular',
     },
     watch: {
         backgroundColor: '#FFFFFF',

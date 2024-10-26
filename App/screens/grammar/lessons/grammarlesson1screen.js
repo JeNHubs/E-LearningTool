@@ -2,47 +2,22 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, Platform, StatusBar, ScrollView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import colors from '../../../Config/colors.js';
-
-
+import { useFonts } from 'expo-font';
 
 function LearnGrammarScreen() {
     const navigation = useNavigation();
 
-    const [answers, setAnswers] = useState([]);
+    const [loaded] = useFonts({
+        'InriaSansRegular': require('../../../assets/fonts/InriaSans-Regular.ttf'),
+        'InriaSansBold': require('../../../assets/fonts/InriaSans-Bold.ttf'),
+        'InterRegular': require('../../../assets/fonts/Inter_18pt-Regular.ttf'),
+        'InterBold': require('../../../assets/fonts/Inter_18pt-Bold.ttf'),
+        'PaytoneRegular': require('../../../assets/fonts/PaytoneOne-Regular.ttf'),
+      });
 
-
-
-    const handleSubmit = () => {
-        
-        // Check if all questions have been answered
-        if (answers.length !== 5 || answers.includes(undefined)) {
-            alert('Please answer all questions.');
-            return;
-        }
-
-        // Check if all answers are correct
-        const correctAnswers = [
-            'C', // correct answer for question 1
-            'C', // correct answer for question 2
-            'D', // correct answer for question 3
-            'A', // correct answer for question 4
-            'A', // correct answer for question 5
-        ];
-
-        let score = 0;
-        for (let i = 0; i < answers.length; i++) {
-            if (answers[i] === correctAnswers[i]) {
-                score++;
-            }
-        }
-
-        console.log(`You scored ${score} out of ${answers.length}!`);
-        alert(`You scored ${score} out of ${answers.length}!`);
-
-    };
-       
-        
-    
+      if (!loaded) {
+        return null;
+      }
 
 
     return (

@@ -2,12 +2,22 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, Platform, StatusBar, ScrollView, TextInput} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import colors from '../../../Config/colors.js';
-
-
-
+import { useFonts } from 'expo-font';
 
 function LearnVocabularyScreen2() {
     const navigation = useNavigation();
+
+    const [loaded] = useFonts({
+        'InriaSansRegular': require('../../../assets/fonts/InriaSans-Regular.ttf'),
+        'InriaSansBold': require('../../../assets/fonts/InriaSans-Bold.ttf'),
+        'InterRegular': require('../../../assets/fonts/Inter_18pt-Regular.ttf'),
+        'InterBold': require('../../../assets/fonts/Inter_18pt-Bold.ttf'),
+        'PaytoneRegular': require('../../../assets/fonts/PaytoneOne-Regular.ttf'),
+      });
+
+      if (!loaded) {
+        return null;
+      }
 
     return (
         <View style={styles.container}>

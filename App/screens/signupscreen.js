@@ -2,9 +2,22 @@ import React from 'react';
 import {StyleSheet, Text, View, Image, StatusBar, Platform, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import colors from '../Config/colors.js';
+import { useFonts } from 'expo-font';
 
 function SignUpScreen() {
     const navigation = useNavigation();
+
+    const [loaded] = useFonts({
+      'InriaSansRegular': require('../assets/fonts/InriaSans-Regular.ttf'),
+      'InriaSansBold': require('../assets/fonts/InriaSans-Bold.ttf'),
+      'InterRegular': require('../assets/fonts/Inter_18pt-Regular.ttf'),
+      'InterBold': require('../assets/fonts/Inter_18pt-Bold.ttf'),
+      'PaytoneRegular': require('../assets/fonts/PaytoneOne-Regular.ttf'),
+    });
+
+    if (!loaded) {
+      return null;
+    }
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
@@ -77,7 +90,7 @@ const styles = StyleSheet.create({
         fontSize: 38,
         color: colors.white,
         top: 50,
-        fontFamily: 'PaytoneOneRegular',
+        fontFamily: 'PaytoneRegular',
       },
       logo: {
         width: 194,
@@ -93,7 +106,7 @@ const styles = StyleSheet.create({
         top: 100,
       },
       subtitle: {
-        fontFamily: 'PaytoneOneRegular',
+        fontFamily: 'PaytoneRegular',
         color: colors.primary,
         width: '50%',
         fontSize: 30,
@@ -113,7 +126,7 @@ const styles = StyleSheet.create({
         color: colors.white,
         fontSize: 18,
         textAlign: 'center',
-        fontFamily: 'InterVariable',
+        fontFamily: 'InterBold',
       },
       inputContainer: {
         flexDirection: 'row',
@@ -128,7 +141,7 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 45,
         paddingHorizontal: 5,
-        fontFamily: 'InterVariable',
+        fontFamily: 'InterBold',
       },
       signupContainer: {
         flexDirection: 'row',
@@ -138,14 +151,13 @@ const styles = StyleSheet.create({
       signupText: {
         fontSize: 16,
         color: colors.black,
-        fontFamily: 'InterVariable',
+        fontFamily: 'InterRegular',
       },
       signupLink: {
         fontSize: 16,
         color: colors.black,
-        fontWeight: 'bold',
         textDecorationLine: 'underline',
-        fontFamily: 'InterVariable',
+        fontFamily: 'InterBold',
       },
 });
 

@@ -8,6 +8,7 @@ import HomeScreen from './App/screens/homescreen.js';
 import WatchScreen from './App/screens/watchscreen.js';
 import LearnScreen from './App/screens/learnscreen.js';
 import AllLesson from './App/screens/alllessonscreen.js';
+import VideoPlayer from './App/screens/videoplayer.js';
 
 import AboutScreen from './App/screens/aboutscreen.js';
 
@@ -57,6 +58,7 @@ export default function App() {
         <Stack.Screen name="Watch" component={WatchScreen} />        
         <Stack.Screen name="Learn" component={LearnScreen} />
         <Stack.Screen name="AllLesson" component={AllLesson} />
+        <Stack.Screen name="VideoPlayer" component={VideoPlayer} />
         
         <Stack.Screen name="About" component={AboutScreen} />
 

@@ -1,18 +1,93 @@
-import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState, useCallback, useEffect, useRef  } from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Image, Platform, StatusBar } from 'react-native';
 import colors from '../Config/colors.js';
-
+import { useFonts } from 'expo-font';
 
 
 function WatchScreen() {
+    const route = useRoute();
     const navigation = useNavigation();
     const [sidebarVisible, setSidebarVisible] = useState(false);
-
-
+    const video1 = React.useRef(null);
+    
     const sideBarClose = () => {
         setSidebarVisible(false);
     }
+
+    const imagePaths = [
+        require('../assets/image1.jpg'),
+        require('../assets/image2.jpg'),
+        require('../assets/image3.jpg'),
+        require('../assets/image4.jpg'),
+        require('../assets/image5.jpg'),
+        require('../assets/image6.jpg'),
+        require('../assets/image7.jpg'),
+        require('../assets/image8.jpg'),
+        require('../assets/image9.jpg'),
+        require('../assets/image10.jpg'),
+        require('../assets/image11.jpg'),
+        require('../assets/image12.jpg'),
+        require('../assets/image13.jpg'),
+        require('../assets/image14.jpg'),
+        require('../assets/image15.jpg'),
+        require('../assets/image16.jpg'),
+        require('../assets/image17.jpg'),
+        require('../assets/image18.jpg'),
+      ];
+    const videoTitles = [
+        "Speak English Like a Native Speaker in 20 Minutes",
+        "How To Speak English Like A Native Speaker",
+        "THINK and SPEAK in English",
+        "English for Beginner Level: Speak Real English",
+        "Learn ENGLISH with Podcasts | Advanced Vocabulary",
+        "Simple English Conversation",
+        "ALL English Tenses in 20 Minutes - Basic English Grammar",
+        "How to Improve English Grammar - Tips to Learn English Grammar Faster",
+        "How to improve your English writing skills? - Free English lesson",
+        "Unlock English Writing Fast: A 50 Minutes Crash Course [Writing]",
+        "Speak English Like a Native! 20 Ways Native English is Different | Go Natural English",
+        "Spoken English for Beginners | How to Speak in English Fluently?",
+        "Speak With Me: 2 Hour English Speaking Practice",
+        "Don't be Shy! 10 Ways to Start a Conversation with Anyone | Go Natural English ",
+        "English Speaking Practice | 65 Sentences | Awal",
+        "Everyday English Conversation Practice | 30 Minutes English Listening",
+        "How to React When Native Speakers Answer You in English",
+        "200 Action Verbs In English With Sentences | Action Verbs For Beginners | Daily Sentences",
+
+    ]
+      const videoUrls = [
+        require('../assets/videos/video1.mp4'),
+        require('../assets/videos/video2.mp4'),
+        require('../assets/videos/video3.mp4'),
+        require('../assets/videos/video4.mp4'),
+        require('../assets/videos/video5.mp4'),
+        require('../assets/videos/video6.mp4'),
+        require('../assets/videos/video7.mp4'),
+        require('../assets/videos/video8.mp4'),
+        require('../assets/videos/video9.mp4'),
+        require('../assets/videos/video10.mp4'),
+        require('../assets/videos/video11.mp4'),
+        require('../assets/videos/video12.mp4'),
+        require('../assets/videos/video13.mp4'),
+        require('../assets/videos/video14.mp4'),
+        require('../assets/videos/video15.mp4'),
+        require('../assets/videos/video16.mp4'),
+        require('../assets/videos/video17.mp4'),
+        require('../assets/videos/video18.mp4'),
+      ]
+
+    const [loaded] = useFonts({
+        'InriaSansRegular': require('../assets/fonts/InriaSans-Regular.ttf'),
+        'InriaSansBold': require('../assets/fonts/InriaSans-Bold.ttf'),
+        'InterRegular': require('../assets/fonts/Inter_18pt-Regular.ttf'),
+        'InterBold': require('../assets/fonts/Inter_18pt-Bold.ttf'),
+        'PaytoneRegular': require('../assets/fonts/PaytoneOne-Regular.ttf'),
+      });
+
+      if (!loaded) {
+        return null;
+      }
 
 return (
     <View style={styles.container}>
@@ -33,8 +108,8 @@ return (
                         <Text style={styles.profileIconText}>U</Text>
                     </View>
                     <View>
-                        <Text style={styles.profileInfoUser}>USER</Text>
-                        <Text style={styles.profileInfoEmail}>user@gmail.com</Text>
+                        <Text style={styles.profileInfoUser}>user</Text>
+                        <Text style={styles.profileInfoEmail}>username@gmail.com</Text>
                     </View>
                     <View style={styles.sidebarArrowBackContainer}>
                         <TouchableOpacity style={styles.sidebarArrowBack} onPress={() => setSidebarVisible(false)} >
@@ -54,19 +129,19 @@ return (
                     <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('Learn'); }}>
                         <Image style={styles.sidebarItemIcon} source={require('../assets/learn-navigation.png')} />
                         <View style={{flexDirection: 'column'}}>
-                            <Text style={styles.sidebarItemTextTitle}>Learn</Text>
+                            <Text style={styles.sidebarItemText}>Learn</Text>
                             <Text style={styles.sidebarItemTextDescription}>words and phrases</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.sidebarItem} onPress={() => {sideBarClose(); navigation.navigate('About')}}>
                         <Image style={styles.sidebarItemIcon} source={require('../assets/community-navigation.png')} />
                         <View style={{flexDirection: 'column'}}>
-                            <Text style={styles.sidebarItemTextTitle}>About Us</Text>
+                            <Text style={styles.sidebarItemText}>About Us</Text>
                         </View>
                     </TouchableOpacity>
                     <View style={styles.sidebarItemLogout}>
                         <TouchableOpacity style={styles.sidebarItemLogoutButton} onPress={() => {sideBarClose(); navigation.navigate('Login')}}>
-                            <Text style={styles.sidebarItemLogoutText}>Logout</Text>
+                            <Text style={styles.sidebarItemLogoutText}>LOGOUT</Text>
                         </TouchableOpacity>
                     </View> 
                 </View>
@@ -74,26 +149,43 @@ return (
         )}
 
         <ScrollView style={[styles.scrollView, {marginBottom: 'auto'}]}>
-            <View style={styles.watch} />
+            <View style={styles.watch} >
+                <Image style={styles.watchImage} source={require('../assets/image0.png')} />
+            </View>
             <Text style={styles.heading}>Recommended videos</Text>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
-            {[1, 2, 3, 4, 5, 6].map((index) => (
-                <View key={index} style={{ backgroundColor: 'white', width: '38%', height: 75, borderRadius: 5, marginVertical: 5, marginHorizontal: 5 }} />
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' , width: '100%', height: 'auto' }}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
+               <TouchableOpacity style={{ width: '40%', justifyContent: 'center',backgroundColor: colors.white,  alignItems: 'center', height: 75, borderRadius: 5, marginVertical: 5, marginHorizontal: 5 }} 
+                    key={index} 
+                    onPress={() => {
+                    navigation.navigate('VideoPlayer', { videoUrl: videoUrls[index - 1], videoTitle: videoTitles[index - 1], selectedImageIndex: index });
+                }}>
+                    <Image
+                    ref={video1}
+                    source={imagePaths[index - 1]}
+                    style={{ width: '100%', height: 75, borderRadius: 5, backgroundColor: colors.white }}
+                    />
+                </TouchableOpacity>
             ))}
             </View>
 
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
-                {[1, 2, 3, 4].map((index) => (
-                <View key={index} style={{ backgroundColor: 'white', width: '38%', height: 75, borderRadius: 5, marginVertical: 5, marginHorizontal: 5 }} />
-                ))} 
-            </View>
-            <Text style={[styles.loadMore, { alignSelf: 'flex-end' }]}>
-            see more
-            </Text>
+            <Text style={[styles.loadMore, { alignSelf: 'flex-end' }]}> see more </Text>
             <Text style={styles.heading}>Most watched videos</Text>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
-                <View key={index} style={{ backgroundColor: 'white', width: '38%', height: 75, borderRadius: 5, marginVertical: 5, marginHorizontal: 5 }} />
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' , width: '100%', height: 'auto'   }}>
+            {[11, 12, 13, 14, 15, 16, 17, 18].map((index) => (
+                <TouchableOpacity style={{ width: '40%', justifyContent: 'center',backgroundColor: colors.white,  alignItems: 'center', height: 75, borderRadius: 5, marginVertical: 5, marginHorizontal: 5 }} 
+                    key={index} 
+                    onPress={() => {
+                    navigation.navigate('VideoPlayer', { videoUrl: videoUrls[index - 1], videoTitle: videoTitles[index - 1], selectedImageIndex: index });
+                }}>
+                    <Image
+                    ref={video1}
+                    source={imagePaths[index - 1]}
+                    style={{ width: '100%', height: '100%', borderRadius: 5, backgroundColor: colors.white }}
+                    />
+                    
+                </TouchableOpacity>
+                
             ))}
             </View>
         </ScrollView>
@@ -125,8 +217,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     navbarTitle: {
-        fontSize: 30,
-        fontWeight: 'bold',
+        fontSize: 37,
+        fontFamily: 'InriaSansBold',
         color: colors.primary,
         paddingLeft: 10,
     },
@@ -166,21 +258,23 @@ const styles = StyleSheet.create({
     },
     profileIconText: {
         fontSize: 50,
-        fontWeight: 'bold',
+        fontFamily: 'PaytoneRegular',
         color: colors.primary,
     },
     profileInfoUser: {
         color: colors.white,
         fontSize: 18,
         marginBottom: -6,
+        fontFamily: 'PaytoneRegular',
     },
     profileInfoEmail: {
         color: colors.gray,
         fontSize: 15,
         textDecorationLine: 'underline',
+        fontFamily: 'PaytoneRegular',
     },
     sidebarArrowBackContainer: {
-        width:'42%',
+        width:'32%',
         height: 50,
         alignItems: 'flex-end',
         justifyContent: 'center',
@@ -220,20 +314,15 @@ const styles = StyleSheet.create({
     },
     sidebarItemText: {
         fontSize: 20,
-        fontWeight: 'bold',
         color: colors.primary,
         marginLeft: 10,
-    },
-    sidebarItemTextTitle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: colors.primary,
-        marginLeft: 10,
+        fontFamily: 'PaytoneRegular',
     },
     sidebarItemTextDescription: {
         fontSize: 15,
         color: colors.primary,
         marginLeft: 10,
+        fontFamily: 'InriaSansBold',
     },
     sidebarItemLogout: {    
         width: '100%',
@@ -245,34 +334,39 @@ const styles = StyleSheet.create({
     sidebarItemLogoutButton: {
         borderRadius: 20,
         width: '80%',
-        height: 40,
+        height: 50,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: colors.navBarProfile,
     },
     sidebarItemLogoutText: {
-        fontSize: 20,
-        fontWeight: 'bold',
+        fontSize: 25,
         color: colors.white,
+        fontFamily: 'PaytoneRegular',
     },
     watch: {
         backgroundColor: '#FFFFFF',
         width: '80%',
         height: 150,
-        marginTop: 37,
         borderRadius: 5,
         alignSelf: 'center',
     },
+    watchImage: {
+        width: '100%',
+        height: '100%',
+        borderRadius: 5,
+    },
     heading: {
-        fontSize: 16,
+        fontSize: 20,
         color: '#FFFFFF',
         marginTop: 37,
         marginLeft: 40,
-        fontWeight: 'bold',
+        fontFamily: 'InriaSansBold',
     },
     loadMore: {
         color: '#FFFFFF',
         marginRight: 44,
+        fontFamily: 'InriaSansBold',
     },
 });
 

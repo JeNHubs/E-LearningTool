@@ -13,9 +13,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "requireFullScreen": true
     },
     "android": {
+      "requireFullScreen": true,
       "adaptiveIcon": {
         "foregroundImage": "./App/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -26,14 +28,24 @@
     },
     "plugins": [
       [
+        
     "expo-font",
         {
           "fonts": [
-            "./App/assets/fonts/Inria_Sans/InriaSans-Regular",
-            "./App/assets/fonts/Inter/InriaSans-VariableFont_opsz,wght.ttf",
-            "./App/assets/fonts/PaytoneOne/PaytoneOne-Regular.ttf"
+            "./App/assets/fonts/InriaSans-Regular.ttf",
+            "./App/assets/fonts/InriaSans-Bold.ttf",
+            "./App/assets/fonts/PaytoneOne-Regular.ttf",
+            "./App/assets/fonts/Inter_18pt-Regular.ttf",
+            "./App/assets/fonts/Inter_18pt-Bold.ttf"
           ]
         }
+      ],
+      [
+        "expo-screen-orientation",
+        {
+          "initialOrientation": "DEFAULT"
+        }
+        
       ]
     ]
   }

@@ -6,19 +6,26 @@ import { useFonts } from 'expo-font';
 
 
 function LoginScreen() {
-
+  const navigation = useNavigation();
   const [loaded] = useFonts({
-    'PaytoneOneRegular': require('../assets/fonts/PaytoneOne/PaytoneOne-Regular.ttf'),
-    'InriaSansRegular': require('../assets/fonts/Inria_Sans/InriaSans-Regular.ttf'),
-    'InterVariable': require('../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf'),
+    'InriaSansRegular': require('../assets/fonts/InriaSans-Regular.ttf'),
+    'InriaSansBold': require('../assets/fonts/InriaSans-Bold.ttf'),
+    'InterRegular': require('../assets/fonts/Inter_18pt-Regular.ttf'),
+    'InterBold': require('../assets/fonts/Inter_18pt-Bold.ttf'),
+    'PaytoneRegular': require('../assets/fonts/PaytoneOne-Regular.ttf'),
   });
 
-    const navigation = useNavigation();
+  if (!loaded) {
+    return null;
+  }
+
+
+
 
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.title}>E-Learning Tool</Text>
+                <Text style={styles.title}>E-LEARNING TOOL</Text>
                 <Image style={styles.logo}
                 source={require('../assets/logo.png')} 
                 />
@@ -68,7 +75,7 @@ function LoginScreen() {
             </View>
         </SafeAreaView>
     );
-}
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -88,8 +95,10 @@ const styles = StyleSheet.create({
         borderBottomStartRadius: 80
       },
       title: {
-        fontFamily: 'PaytoneOneRegular',
-        fontSize: 38,
+        width: '100%',
+        textAlign: 'center',
+        fontFamily: 'PaytoneRegular',
+        fontSize: 36,
         color: colors.white,
         top: 50,
       },
@@ -104,14 +113,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
+        height: 90,
         top: 100,
       },
       subtitle: {
         color: colors.primary,
-        width: '50%',
-        fontSize: 30,
+        width: '60%',
+        height: '100%',
+        fontSize: 35,
         textAlign: 'center',
-        fontFamily: 'PaytoneOneRegular',
+        fontFamily: 'PaytoneRegular',
       },
       form: {
         top: 150,
@@ -128,10 +139,9 @@ const styles = StyleSheet.create({
       },
       buttonText: {
         color: colors.white,
-        fontSize: 18,
+        fontSize: 20,
         textAlign: 'center',
-        fontFamily: 'InterVariable',
-        fontWeight: 'bold',
+        fontFamily: 'InterBold',
       },
       inputContainer: {
         flexDirection: 'row',
@@ -153,25 +163,26 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 50,
         paddingHorizontal: 10,
-        fontFamily: 'InterVariable',
+        fontFamily: 'InterBold',
         fontSize: 16,
       },
       signupContainer: {
+        width: '100%',
         flexDirection: 'row',
         justifyContent: 'center',
         marginTop: 20,
+        fontFamily: 'InterBold',
       },
       signupText: {
         fontSize: 16,
         color: colors.black,
-        fontFamily: 'InterVariable',
       },
       signupLink: {
         fontSize: 16,
         color: colors.black,
         fontWeight: 'bold',
         textDecorationLine: 'underline',
-        fontFamily: 'InterVariable',
+        fontFamily: 'InterBold',
       },
 });
 
